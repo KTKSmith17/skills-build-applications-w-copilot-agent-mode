@@ -1,7 +1,8 @@
+
 // Leaderboard.js
 // Fetches leaderboard from the Django REST API
-const BASE_URL = process.env.CODESPACE_URL || "http://localhost:8000";
-export const LEADERBOARD_API = `${BASE_URL}/api/leaderboard/`;
+export { API_BASE_URL } from "./Workouts";
+export const LEADERBOARD_API = `${API_BASE_URL}/leaderboard/`;
 
 // Example usage:
 // fetch(LEADERBOARD_API).then(res => res.json()).then(data => ...);
