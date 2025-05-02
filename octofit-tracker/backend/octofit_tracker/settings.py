@@ -27,7 +27,7 @@ DEBUG = True
 
 
 # Allow all hosts
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'localhost', '127.0.0.1', 'literate-space-journey-9wr7796xxv63vp9-8000.app.github.dev']
 
 
 # Application definition
