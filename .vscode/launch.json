@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch Django Backend",
+         ALLOWED_HOSTS = ['*', 'localhost', '127.0.0.1', 'literate-space-journey-9wr7796xxv63vp9-8000.app.github.dev']        ALLOWED_HOSTS = ['*', 'localhost', '127.0.0.1', 'literate-space-journey-9wr7796xxv63vp9-8000.app.github.dev']        ALLOWED_HOSTS = ['*', 'localhost', '127.0.0.1', 'literate-space-journey-9wr7796xxv63vp9-8000.app.github.dev']   "name": "Launch Django Backend",
       "type": "python",
       "request": "launch",
       "program": "${workspaceFolder}/octofit-tracker/backend/manage.py",
