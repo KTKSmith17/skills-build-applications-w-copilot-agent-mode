@@ -107,3 +107,23 @@ body, .App, .table, .btn, .navbar, .card, .modal, .form-control, .nav-link, .nav
     transform: rotate(360deg);
   }
 }
+
+.modal-content {
+  border-radius: 16px;
+}
+.modal-header {
+  background: linear-gradient(90deg, #3a0ca3 0%, #4361ee 100%);
+  color: #fff;
+}
+.modal-title {
+  color: #fff;
+}
+
+.form-label {
+  color: #3a0ca3;
+  font-weight: 600;
+}
+.form-control:focus {
+  border-color: #4361ee;
+  box-shadow: 0 0 0 0.2rem rgba(67, 97, 238, 0.15);
+}

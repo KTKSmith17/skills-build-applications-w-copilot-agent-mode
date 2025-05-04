@@ -1,93 +1,49 @@
 
+
 import './App.css';
-import { Navbar, Nav, Container, Table, Button, Card, Modal, Form } from 'react-bootstrap';
-import { useState } from 'react';
+import { Container, Navbar, Nav } from 'react-bootstrap';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Activities from './Activities';
+import Leaderboard from './Leaderboard';
+import Teams from './Teams';
+import Users from './Users';
+import Workouts from './Workouts';
 import octofitLogo from './octofitapp-small.png';
 
 
+
 function App() {
-  const [showModal, setShowModal] = useState(false);
-  const handleShow = () => setShowModal(true);
-  const handleClose = () => setShowModal(false);
-
-
   return (
-    <div className="App">
-      <Navbar variant="dark" expand="lg">
+    <Router>
+      <Navbar bg="light" expand="lg" className="mb-4">
         <Container>
-          <Navbar.Brand href="#home">
-            <img src={octofitLogo} alt="OctoFit Logo" className="octofit-logo" />
+          <Navbar.Brand as={Link} to="/">
+            <img src={octofitLogo} alt="OctoFit Logo" className="octofit-logo" style={{ height: 40, marginRight: 10 }} />
             OctoFit Tracker
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#users">Users</Nav.Link>
-              <Nav.Link href="#teams">Teams</Nav.Link>
-              <Nav.Link href="#activities">Activities</Nav.Link>
-              <Nav.Link href="#leaderboard">Leaderboard</Nav.Link>
-              <Nav.Link href="#workouts">Workouts</Nav.Link>
+              <Nav.Link as={Link} to="/activities">Activities</Nav.Link>
+              <Nav.Link as={Link} to="/leaderboard">Leaderboard</Nav.Link>
+              <Nav.Link as={Link} to="/teams">Teams</Nav.Link>
+              <Nav.Link as={Link} to="/users">Users</Nav.Link>
+              <Nav.Link as={Link} to="/workouts">Workouts</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-
-      <Container className="mt-4">
-        <h1 className="mb-4">Welcome to OctoFit Tracker</h1>
-        <Card className="mb-4">
-          <Card.Body>
-            <Card.Title>Sample Data Table</Card.Title>
-            <Table striped bordered hover>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>thundergod</td>
-                  <td>thundergod@mhigh.edu</td>
-                  <td><Button variant="primary" onClick={handleShow}>View</Button></td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>metalgeek</td>
-                  <td>metalgeek@mhigh.edu</td>
-                  <td><Button variant="primary" onClick={handleShow}>View</Button></td>
-                </tr>
-              </tbody>
-            </Table>
-          </Card.Body>
-        </Card>
-
-        <Button variant="success" onClick={handleShow} className="mb-3">Open Modal</Button>
-
-        <Modal show={showModal} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>User Details</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Form>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" defaultValue="thundergod@mhigh.edu" />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" defaultValue="thundergodpassword" />
-              </Form.Group>
-              <Button variant="primary" type="submit">
-                Save Changes
-              </Button>
-            </Form>
-          </Modal.Body>
-        </Modal>
+      <Container>
+        <Routes>
+          <Route path="/activities" element={<Activities />} />
+          <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/teams" element={<Teams />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/workouts" element={<Workouts />} />
+          <Route path="/" element={<h1>Welcome to OctoFit Tracker</h1>} />
+        </Routes>
       </Container>
-    </div>
+    </Router>
   );
 }
 
